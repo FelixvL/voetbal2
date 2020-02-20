@@ -1,31 +1,53 @@
 package voetbal2;
+import java.util.Random;
 import java.util.Scanner;
 class Demo{
    public static void main(String[] args) {
-	   Team a = new Team();
-	   Team b = new Team();
-	   a.introduceren();
-	   b.introduceren();
+	   CompetitieGenerator cg = new CompetitieGenerator();
+	   String[] speNamen= {"Jan", "Kees"};
+	   Team temp = cg.genereerTeam("Heracles", speNamen);
+	   temp.introduceren();
+	   System.out.println("einde");
+	   
    }
 }
+
+class CompetitieGenerator{
+	Random r = new Random();
+	Team genereerTeam(String teamNaam, String[] spelernamen){
+		Team team = new Team(teamNaam);
+		Speler[] spelers = new Speler[spelernamen.length];
+		for(int a = 0; a < spelernamen.length; a++) {
+			Speler speler = new Speler();
+			speler.naam = spelernamen[a];
+			speler.stat = r.nextInt(10)+6;
+			spelers[a]= speler;
+			System.out.println("check"+speler.naam + ""+speler.stat);
+		}
+		team.spelers = spelers;
+		return team;
+	}
+	void initieer() {
+		
+	}
+}
+
+
+
 class Team{
 	String naam;
-	Speler keeper;
-	Speler verdediger;
-	Speler aanvaller;
-	Team( ){
-		this.vraagTeamNaam();
-		this.keeper = new Keeper();
-		this.aanvaller = new Aanvaller();
-		this.verdediger = new Verdediger();
+	Speler[] spelers ;
+	Team(String teamNaam){
+		naam = teamNaam;
 	}
 	void introduceren() {
-		System.out.println(this.naam + " en mijn \nkeeper heet: "+keeper.naam);
-		System.out.println(" en mijn \naanvaller heet: "+aanvaller.naam);
-		System.out.println(" en mijn \nverdediger heet: "+verdediger.naam);
+		System.out.println("Wij zijn" + naam);
+		for(int x = 0 ;x < spelers.length; x++ ) {
+			System.out.println("go");
+		}
 	}
 	void keeperNaamGeven(String naam) {
-		this.keeper.naam = naam;
+//		this.keeper.naam = naam;
 	}
 	void vraagTeamNaam() {
 		Scanner sc = new Scanner(System.in);
@@ -33,8 +55,9 @@ class Team{
 		naam = sc.nextLine();
 	}
 }
-abstract class Speler{
+class Speler{
 	String naam;
+	int stat;
 	Speler(){
 		
 	}
