@@ -9,12 +9,13 @@ class Demo{
 }
 class Team {
 	String naam;
-	Speler keeper = new Speler();
+	Speler keeper;
 	Speler verdediger = new Speler();
 	Speler aanvaller = new Speler();
 
 	Team(){
 		this.vraagTeamNaam();
+		this.keeper = new Speler();
 	}
 
 	void introduceren() {
