@@ -4,7 +4,7 @@ class Demo{
    public static void main(String[] args) {
 	   Scanner sc = new Scanner(System.in);
 	   
-	   
+	   System.out.println("Hoi van de voorste rij");
 	   
 	   Team team1 = new Team(sc.nextLine());
 	   team1.keeperNaamGeven(sc.nextLine());
