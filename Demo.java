@@ -2,32 +2,42 @@ package voetbal2;
 import java.util.Scanner;
 class Demo{
    public static void main(String[] args) {
-	   Scanner sc = new Scanner(System.in);
-	   
-	   System.out.println("Hoi van de voorste rij");
-	   
-	   Team team1 = new Team(sc.nextLine());
-	   team1.keeperNaamGeven(sc.nextLine());
-	   
+	   Team team1 = new Team();
+
 	   team1.introduceren();
    }
 }
-class Team{
-	String naam = "ajax";
+class Team {
+	String naam;
 	Speler keeper = new Speler();
 	Speler verdediger = new Speler();
 	Speler aanvaller = new Speler();
-	Team( String a ){
-		this.naam = a;
+
+	Team(){
+		this.vraagTeamNaam();
 	}
+
 	void introduceren() {
 		System.out.println(this.naam + " en mijn \nkeeper heet: "+keeper.naam);
 	}
-	void keeperNaamGeven(String naam) {
-		this.keeper.naam = naam;
+
+	void vraagTeamNaam() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("TeamNaam? ");
+		this.naam = sc.nextLine();
 	}
 }
 class Speler{
-	String naam = "onana";
+	String naam;
+
+	Speler(){
+		this.vraagSpelernaam();
+	}
+
+	void vraagSpelernaam() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("keeper: ");
+		this.naam = sc.nextLine();
+	}
 	
 }
