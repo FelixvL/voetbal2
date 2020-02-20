@@ -10,6 +10,8 @@ class Demo{
 class Team {
 	String naam;
 	Speler keeper;
+	Speler verdediger;
+	Speler aanvaller;
 
 	Team(){
 		this.vraagTeamNaam();
