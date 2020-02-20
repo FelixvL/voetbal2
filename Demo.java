@@ -1,11 +1,11 @@
 package voetbal2;
-
+import java.util.Scanner;
 class Demo{
    public static void main(String[] args) {
-	   Team team1 = new Team("Ajax");
-	   Team team2 = new Team("Feyenoord");
-	   System.out.println("hoi");
-	   team1.keeperNaamGeven("Menzo");
+	   Scanner sc = new Scanner(System.in);
+	   	   
+	   Team team1 = new Team(sc.nextLine());
+	   team1.keeperNaamGeven(sc.nextLine());
 	   
 	   team1.introduceren();
    }
