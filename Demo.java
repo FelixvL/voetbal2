@@ -6,11 +6,7 @@ class Demo{
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Wat is de naam van het team?");
-//		System.out.println("Wat is de naam van de keeper?");
 		Team team1 = new Team(sc.nextLine());
-		
-		
-
 
 		team1.introduceren();
 	}
